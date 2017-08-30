@@ -9,7 +9,7 @@ package edu.eci.arsw.basictdd;
  *
  * @author hcadavid
  */
-class ExcepcionParametrosInvalidos extends Exception {
+public class ExcepcionParametrosInvalidos extends Exception {
 
     public ExcepcionParametrosInvalidos(String message) {
         super(message);

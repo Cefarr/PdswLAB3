@@ -5,6 +5,9 @@
  */
 package edu.eci.pdsw.test;
 
+import edu.eci.arsw.basictdd.CalculadoraTarifas;
+import edu.eci.arsw.basictdd.ExcepcionParametrosInvalidos;
+import static jdk.nashorn.internal.objects.NativeRegExp.test;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -61,12 +64,93 @@ import static org.junit.Assert.*;
  *           Resultado esperado: Error
  */
 public class CalculadorTarifasTest {
-    
-    public CalculadorTarifasTest() {
+    //Pruebas clase de equivalencia
+    float tarifa;
+    CalculadoraTarifas a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,x,y;
+    @Test
+    public void testClaseEquivalenciaCE1() throws ExcepcionParametrosInvalidos{
+        a = new CalculadoraTarifas();
+        tarifa = a.calculoTarifa(1f, 23, 68);
+        assertEquals(0.23f, tarifa,0.0001);
+        b=new CalculadoraTarifas();//Valido
+        tarifa = b.calculoTarifa(1f, 20, 65);
+        assertEquals(0.23f, tarifa,0.0001);        
+        c=new CalculadoraTarifas();//No Valido
+        tarifa = c.calculoTarifa(1f, 19, 64);
+        assertEquals(0.23f, tarifa,0.0001);//No Valido
+    }
+    @Test
+    public void testClaseEquivalenciaCE2() throws ExcepcionParametrosInvalidos{
+        d = new CalculadoraTarifas();
+        tarifa = d.calculoTarifa(1f, 21, 19);
+        assertEquals(0.20f, tarifa,0.0001);
+        e=new CalculadoraTarifas();//Valido
+        tarifa = e.calculoTarifa(1f, 20, 18);
+        assertEquals(0.20f, tarifa,0.0001);        
+        f=new CalculadoraTarifas();//No Valido
+        tarifa = f.calculoTarifa(1f, 19, 17);
+        assertEquals(0.20f, tarifa,0.0001);//No Valido
     }
     
-    @Before
-    public void setUp() {
+    @Test
+    public void testClaseEquivalenciaCE3() throws ExcepcionParametrosInvalidos{
+        g = new CalculadoraTarifas();
+ 
+        tarifa = g.calculoTarifa(1f, 21, 19);
+        assertEquals(0.15f, tarifa,0.0001);
+        h=new CalculadoraTarifas();//Valido
+        tarifa = h.calculoTarifa(1f, 20, 18);
+        assertEquals(0.15f, tarifa,0.0001);        
+        i=new CalculadoraTarifas();//No Valido
+        tarifa = i.calculoTarifa(1f, 20, 65);
+        assertEquals(0.15f, tarifa,0.0001);//No Valido
     }
     
+    @Test
+    public void testClaseEquivalenciaCE4() throws ExcepcionParametrosInvalidos{
+        j = new CalculadoraTarifas();
+        tarifa = j.calculoTarifa(1f, 2, 66);
+        assertEquals(0.8f, tarifa,0.0001);
+        k=new CalculadoraTarifas();//Valido
+        tarifa = k.calculoTarifa(1f, 9, 65);
+        assertEquals(0.8f, tarifa,0.0001);        
+        l=new CalculadoraTarifas();//No Valido
+        tarifa = l.calculoTarifa(1f, 1, 64);
+        assertEquals(0.8f, tarifa,0.0001);//No Valido
+    }
+    
+    @Test
+    public void testClaseEquivalenciaCE5() throws ExcepcionParametrosInvalidos{
+        m = new CalculadoraTarifas();
+                //(float tarifaBase, int diasAntelacion, int edad)
+        tarifa = m.calculoTarifa(1f, 2, 17);
+        assertEquals(0.5f, tarifa,0.0001);
+        n=new CalculadoraTarifas();//Valido
+        tarifa = n.calculoTarifa(1f, 8, 18);
+        assertEquals(0.5f, tarifa,0.0001);        
+        o=new CalculadoraTarifas();//No Valido
+        tarifa = o.calculoTarifa(1f, 1, 19);
+        assertEquals(0.5f, tarifa,0.0001);//No Valido
+    }
+    
+    @Test
+    public void testClaseEquivalenciaCE6() throws ExcepcionParametrosInvalidos{
+        p = new CalculadoraTarifas();
+        tarifa = p.calculoTarifa(1f, 5, 35);
+        assertEquals(0.0f, tarifa,0.0001);
+        q=new CalculadoraTarifas();//Valido
+        tarifa = q.calculoTarifa(1f, 20, 65);
+        assertEquals(0.0f, tarifa,0.0001);        
+        r=new CalculadoraTarifas();//No Valido
+        tarifa = r.calculoTarifa(1f, 20, 18);
+        assertEquals(0.0f, tarifa,0.0001);//No Valido
+    }
+    
+    @Test
+    public void testClaseEquivalenciaCE7() throws ExcepcionParametrosInvalidos{
+        s = new CalculadoraTarifas();
+        //tarifa = s.calculoTarifa(01f, 0, 0);
+        //assertEquals(0.23f, tarifa,0.0001);//NO Valido
+
+    }
 }
